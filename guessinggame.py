@@ -7,7 +7,7 @@ print('------------------------------')
 print("Guess the number of M&Ms and you get lunch on the house.")
 print()
 
-mm_count = random.randint(0,100)
+mm_count = 7  # random.randint(0,100)
 attempt_limit = 5
 attempts = 0
 
@@ -15,6 +15,16 @@ while attempts < attempt_limit:
     '''docstring for while loop'''
     guess_text = input("How many M&Ms? ")
     guess = int(guess_text)
-    print(f'Guess #{attempts+1}: {guess_text}')
     attempts += 1
-print(f'You used {attempts} tries. Better luck next time.')
+    if attempts == 1:
+        tries = "try"
+    else:
+        tries = "tries"
+    if mm_count == guess:
+        print(f"You win! The number was {guess}.")
+        break
+    elif mm_count < guess:
+        print(f"Sorry, {guess} is too HIGH.")
+    else:
+        print(f"Sorry, {guess} was too LOW.")
+print(f'You used {attempts} {tries}.')
